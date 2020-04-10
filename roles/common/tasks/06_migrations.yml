@@ -1,0 +1,17 @@
+##
+# Run db migrations and get all static files
+##
+- name: Make migrations
+  shell:
+    cmd: 'set -a; . {{ env_file }}; set +a; {{ python_bin }} manage.py makemigrations --noinput'
+    chdir: '{{ app_api_dir }}'
+
+- name: Migrate database
+  shell:
+    cmd: 'set -a; . {{ env_file }}; set +a; {{ python_bin }} manage.py migrate --noinput'
+    chdir: '{{ app_api_dir }}'
+
+- name: Get all static files
+  shell:
+    cmd: 'set -a; . {{ env_file }}; set +a; {{ python_bin }} manage.py collectstatic --noinput'
+    chdir: '{{ app_api_dir }}'
