@@ -14,9 +14,9 @@
 - name: Create admin account (optional)
   shell:
     cmd: >
-      'set -a; . {{ env_file }}; set +a;
+      set -a; . {{ env_file }}; set +a;
       {{ python_bin }} manage.py createadmin
-      {{ api_admin_user }} {{ api_admin_password }} {{ api_admin_email }}'
+      {{ api_admin_user }} {{ api_admin_password }} {{ api_admin_email }}
     chdir: '{{ app_api_dir }}'
   when: 
     - api_admin_user is defined
