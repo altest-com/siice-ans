@@ -30,7 +30,6 @@ gunicorn_bin: '{{ venv_dir }}/bin/gunicorn'
 
 # Server
 server_ip: <your-server-ip>
-worker_name: master
 secret_key: <your-secret-key>
 
 
