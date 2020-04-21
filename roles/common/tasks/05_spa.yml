@@ -19,6 +19,7 @@
 - name: Install spa dependencies
   npm:
     path: '{{ app_spa_dir }}'
+    production: true
 
 - name: Build spa
   shell:
